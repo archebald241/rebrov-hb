@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(
+        -45deg,
+        rgba(238, 119, 82, 0.7),
+        rgba(231, 60, 126, 0.7),
+        rgba(35, 166, 213, 0.7),
+        rgba(35, 213, 171, 0.7)
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    height: 100svh;
+    padding: 100px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
+}

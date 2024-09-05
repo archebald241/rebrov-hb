@@ -1,0 +1,32 @@
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-image: url('@assets/image2.png');
+    background-size: contain;
+    pointer-events: none;
+    will-change: transform;
+    animation: confetti-fall 1s cubic-bezier(0.4, 0.26, 0.45, 0.74) forwards;
+}
+
+@keyframes confetti-fall {
+    to {
+        transform: translate(var(--x), var(--y)) rotate(720deg);
+    }
+}
+
+/* Добавим несколько вариаций для разнообразия */
+.confetti:nth-child(2n)::before {
+    animation-duration: 1.2s;
+    /* Уменьшили с 2.5s до 1.2s */
+}
+
+.confetti:nth-child(3n)::before {
+    animation-duration: 0.8s;
+    /* Уменьшили с 1.5s до 0.8s */
+}
+
+.confetti:nth-child(4n)::before {
+    animation-duration: 1s;
+    /* Уменьшили с 2.2s до 1s */
+}

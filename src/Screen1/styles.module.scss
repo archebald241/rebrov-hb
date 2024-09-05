@@ -1,0 +1,82 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    .image_container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-height: calc(100% - 100px);
+
+        &.shake {
+            animation: shake 0.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        }
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            width: auto; // Позволяем ширине подстраиваться под высоту
+            height: auto; // Позволяем высоте подстраиваться под ширину
+        }
+    }
+
+    &.explode {
+        .text {
+            display: none;
+        }
+        .image_container {
+            animation: explode 0.6s ease-out forwards !important;
+        }
+    }
+
+    .text {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+
+        span {
+            display: block;
+            text-align: center;
+        }
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(22px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-40px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(40px, 0, 0);
+    }
+}
